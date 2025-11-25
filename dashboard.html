@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Control Tower – Lium Go Operations Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="top-bar">
+    <div class="container top-bar__content">
+      <span>3/27 Mandawali Block, A2 Saket Block, Delhi - 110092</span>
+      <span>Make a call : +91 8882 540 885</span>
+    </div>
+  </div>
+
+  <header class="site-header">
+  <div class="container header__content">
+    <div class="logo">
+      <a href="dashboard.html">
+        <img src="images/liumgo-logo.png" alt="Lium Go logo" />
+      </a>
+    </div>
+
+    <div class="header-dashboard-user">
+      <span class="header-greeting">Hi, Liumgo</span>
+      <a href="login.html" class="btn btn-outline btn-logout">Logout</a>
+    </div>
+  </div>
+</header>
+
+
+  <main>
+    <!-- Hero -->
+    <section class="page-hero page-hero--small">
+      <div class="container">
+        <h1>Operations control tower</h1>
+        <p>
+          Live view of EV fleets, lanes and service levels for Lium Go’s Delhi network.
+          This prototype dashboard surfaces vehicle movement, basic KPIs and alerts.
+        </p>
+      </div>
+    </section>
+
+    <!-- Map + side panels -->
+    <section class="page-section page-section--alt">
+  <div class="container dashboard-shell">
+    <!-- Left sidebar menu -->
+    <aside class="dashboard-sidebar">
+  <ul class="dashboard-menu">
+    <li><button class="dashboard-menu__item dashboard-menu__item--active">Dashboard</button></li>
+    <li><button class="dashboard-menu__item">Charging</button></li>
+    <li><button class="dashboard-menu__item">Vehicle</button></li>
+    <li><button class="dashboard-menu__item">Maintenance</button></li>
+    <li><button class="dashboard-menu__item">Drivers</button></li>
+    <li><button class="dashboard-menu__item">OEMs</button></li>
+    <li><button class="dashboard-menu__item">Parking</button></li>
+    <li><button class="dashboard-menu__item">Clients</button></li>
+    <li><button class="dashboard-menu__item">Trials</button></li>
+    <li><button class="dashboard-menu__item">Recovery</button></li>
+  </ul>
+</aside>
+
+
+    <!-- Main dashboard content -->
+    <div class="dashboard-main-column">
+      <!-- Section title above both columns -->
+      <h2>Delhi network view</h2>
+      <p class="dashboard-subtitle">
+        2W &amp; 3W EVs operating across priority lanes, with indicative positions for a live control-tower view.
+      </p>
+
+      <!-- Row 1: Map + live alerts side by side -->
+      <div class="dashboard-layout">
+        <!-- Map -->
+        <div class="dashboard-main">
+          <div class="dashboard-map">
+            <!-- 2W vehicles -->
+            <div class="vehicle vehicle--2w vehicle--path-a"></div>
+            <div class="vehicle vehicle--2w vehicle--path-b"></div>
+
+            <!-- 3W vehicles -->
+            <div class="vehicle vehicle--3w vehicle--path-c"></div>
+            <div class="vehicle vehicle--3w vehicle--path-d"></div>
+          </div>
+        </div>
+
+        <!-- Live alerts (right side, aligned with map top) -->
+        <aside class="dashboard-side">
+          <div class="page-highlight-card dashboard-card dashboard-alerts">
+            <h3>Live alerts</h3>
+            <ul class="dashboard-alerts__list">
+              <li class="dashboard-alert">
+                <div class="dashboard-alert__title">Lane DL-02 · South Delhi</div>
+                <div class="dashboard-alert__meta">
+                  <span class="dashboard-pill dashboard-pill--critical">❗ Congestion</span>
+                  <span class="dashboard-alert__time">ETA +8–10 min</span>
+                </div>
+              </li>
+              <li class="dashboard-alert">
+                <div class="dashboard-alert__title">EV-3W-014 · Saket hub</div>
+                <div class="dashboard-alert__meta">
+                  <span class="dashboard-pill dashboard-pill--warn">⚠ Low SOC</span>
+                  <span class="dashboard-alert__time">Rerouted via swap station</span>
+                </div>
+              </li>
+              <li class="dashboard-alert">
+                <div class="dashboard-alert__title">Wave 3 · West Delhi cluster</div>
+                <div class="dashboard-alert__meta">
+                  <span class="dashboard-pill dashboard-pill--info">ℹ Load spike</span>
+                  <span class="dashboard-alert__time">Extra riders deployed</span>
+                </div>
+              </li>
+              <li class="dashboard-alert">
+                <div class="dashboard-alert__title">Hub Okhla · Pharma lane</div>
+                <div class="dashboard-alert__meta">
+                  <span class="dashboard-pill dashboard-pill--warn">⚠ Temp check</span>
+                  <span class="dashboard-alert__time">1 shipment under review</span>
+                </div>
+              </li>
+              <li class="dashboard-alert">
+                <div class="dashboard-alert__title">EV-2W-221 · North ring</div>
+                <div class="dashboard-alert__meta">
+                  <span class="dashboard-pill dashboard-pill--info">ℹ Route deviation</span>
+                  <span class="dashboard-alert__time">Auto-corrected by system</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+
+      <!-- Row 2: Snapshot table + bar chart full width -->
+      <div class="page-highlight-card dashboard-card dashboard-snapshot">
+        <div class="dashboard-snapshot__header">
+          <h3>Current shift snapshot</h3>
+          <span class="dashboard-snapshot__time">Updated 14:32 IST · Last 5 min</span>
+        </div>
+
+        <table class="dashboard-table">
+          <thead>
+            <tr>
+              <th>Metric</th>
+              <th class="dashboard-table__col--value">Value</th>
+              <th class="dashboard-table__col--target">Target</th>
+              <th class="dashboard-table__col--status">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>On-time deliveries (60 min)</td>
+              <td class="dashboard-table__col--value">96.8%</td>
+              <td class="dashboard-table__col--target">&gt; 95%</td>
+              <td class="dashboard-table__col--status">
+                <span class="dashboard-status dashboard-status--good">On track</span>
+              </td>
+            </tr>
+            <tr>
+              <td>Active vehicles</td>
+              <td class="dashboard-table__col--value">42 (28 × 2W, 14 × 3W)</td>
+              <td class="dashboard-table__col--target">40–45</td>
+              <td class="dashboard-table__col--status">
+                <span class="dashboard-status dashboard-status--good">Stable</span>
+              </td>
+            </tr>
+            <tr>
+              <td>Avg. drops per vehicle</td>
+              <td class="dashboard-table__col--value">18.4</td>
+              <td class="dashboard-table__col--target">17–19</td>
+              <td class="dashboard-table__col--status">
+                <span class="dashboard-status dashboard-status--good">Healthy</span>
+              </td>
+            </tr>
+            <tr>
+              <td>Fleet availability</td>
+              <td class="dashboard-table__col--value">92%</td>
+              <td class="dashboard-table__col--target">&gt; 90%</td>
+              <td class="dashboard-table__col--status">
+                <span class="dashboard-status dashboard-status--good">OK</span>
+              </td>
+            </tr>
+            <tr>
+              <td>Energy exceptions</td>
+              <td class="dashboard-table__col--value">3 open</td>
+              <td class="dashboard-table__col--target">&lt; 5</td>
+              <td class="dashboard-table__col--status">
+                <span class="dashboard-status dashboard-status--warn">Watch</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="dashboard-chart">
+          <div class="dashboard-chart__item">
+            <div class="dashboard-chart__bar dashboard-chart__bar--primary" style="--bar-height: 97;"></div>
+            <span class="dashboard-chart__value">96.8%</span>
+            <span class="dashboard-chart__label">On-time</span>
+          </div>
+          <div class="dashboard-chart__item">
+            <div class="dashboard-chart__bar dashboard-chart__bar--accent" style="--bar-height: 88;"></div>
+            <span class="dashboard-chart__value">18.4</span>
+            <span class="dashboard-chart__label">Drops / veh</span>
+          </div>
+          <div class="dashboard-chart__item">
+            <div class="dashboard-chart__bar dashboard-chart__bar--primary-soft" style="--bar-height: 92;"></div>
+            <span class="dashboard-chart__value">92%</span>
+            <span class="dashboard-chart__label">Fleet avail.</span>
+          </div>
+          <div class="dashboard-chart__item">
+            <div class="dashboard-chart__bar dashboard-chart__bar--warn" style="--bar-height: 40;"></div>
+            <span class="dashboard-chart__value">3</span>
+            <span class="dashboard-chart__label">Energy exc.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer__content">
+      <div class="footer__left">
+        <p><strong>Lium Go</strong> – EV-first logistics network for enterprises.</p>
+        <p>3/27 Mandawali Block, A2 Saket Block, Delhi - 110092</p>
+      </div>
+      <div class="footer__right">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="about.html">About</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+        <a href="quote.html">Get a Quote</a>
+        <a href="login.html">Login</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
